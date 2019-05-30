@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="React,Refs,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="SPICYCHOCOLATE">
-<meta property="og:url" content="http://spicychocolate.github.com/index.html">
+<meta name="description" content="本文主要涉及Refs与DOM, Refs转发  Refs使用场景 管理焦点，文本选择或媒体播放 触发强制动画 集成第三方DOM库  创建RefsRefs创建有两种方式：  通过回调Refs创建 使用React.createRef()创建(React 16.3 版本引入)  回调Refs通过ref回调函数获取元素DOM,代码如下：1234567891011121314151617181920212">
+<meta name="keywords" content="React,Refs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React之Refs详解">
+<meta property="og:url" content="http://spicychocolate.github.com/2019/05/27/React之Refs详解 /index.html">
 <meta property="og:site_name" content="SPICYCHOCOLATE">
+<meta property="og:description" content="本文主要涉及Refs与DOM, Refs转发  Refs使用场景 管理焦点，文本选择或媒体播放 触发强制动画 集成第三方DOM库  创建RefsRefs创建有两种方式：  通过回调Refs创建 使用React.createRef()创建(React 16.3 版本引入)  回调Refs通过ref回调函数获取元素DOM,代码如下：1234567891011121314151617181920212">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-30T05:54:26.738Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SPICYCHOCOLATE">
+<meta name="twitter:title" content="React之Refs详解">
+<meta name="twitter:description" content="本文主要涉及Refs与DOM, Refs转发  Refs使用场景 管理焦点，文本选择或媒体播放 触发强制动画 集成第三方DOM库  创建RefsRefs创建有两种方式：  通过回调Refs创建 使用React.createRef()创建(React 16.3 版本引入)  回调Refs通过ref回调函数获取元素DOM,代码如下：1234567891011121314151617181920212">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://spicychocolate.github.com/">
+  <link rel="canonical" href="http://spicychocolate.github.com/2019/05/27/React之Refs详解 /">
 
 
 
 
 
-  <title>SPICYCHOCOLATE</title>
+  <title>React之Refs详解 | SPICYCHOCOLATE</title>
   
 
 
@@ -140,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-right 
-  page-home">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
     <a href="https://spicychocolate.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -277,157 +281,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://spicychocolate.github.com/2019/05/30/Failed-to-minify-the-code-from-this-file/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SPICYCHOCOLATE">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/22002601?s=460&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SPICYCHOCOLATE">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/30/Failed-to-minify-the-code-from-this-file/" itemprop="url">Failed to minify the code from this file</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-30T10:40:46+08:00">
-                2019-05-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/踩坑/" itemprop="url" rel="index">
-                    <span itemprop="name">踩坑</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          用create-react-app生成的项目运行npm run build命令报以下错误Failed to minify the code from this file, 不能压缩source-map的代码解决方式：1.将source-map以第三方插件的方式在index.html引入12// in
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/30/Failed-to-minify-the-code-from-this-file/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -457,9 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/27/React之Refs详解 /" itemprop="url">React之Refs详解</a></h1>
+          <h1 class="post-title" itemprop="name headline">React之Refs详解</h1>
         
 
         <div class="post-meta">
@@ -531,31 +385,35 @@
       
 
       
-        
-          
-          
-本文主要涉及Refs与DOM, Refs转发
+        <blockquote>
+<p>本文主要涉及<code>Refs</code>与<code>DOM</code>, <code>Refs</code>转发</p>
+</blockquote>
+<h2 id="Refs使用场景"><a href="#Refs使用场景" class="headerlink" title="Refs使用场景"></a>Refs使用场景</h2><ul>
+<li>管理焦点，文本选择或媒体播放</li>
+<li>触发强制动画</li>
+<li>集成第三方<code>DOM</code>库</li>
+</ul>
+<h3 id="创建Refs"><a href="#创建Refs" class="headerlink" title="创建Refs"></a>创建Refs</h3><p>Refs创建有两种方式：</p>
+<ul>
+<li>通过回调<code>Refs</code>创建</li>
+<li>使用<code>React.createRef()</code>创建(<code>React 16.3</code> 版本引入)</li>
+</ul>
+<h4 id="回调Refs"><a href="#回调Refs" class="headerlink" title="回调Refs"></a>回调<code>Refs</code></h4><p>通过<code>ref</code>回调函数获取元素DOM,代码如下：<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> CustomTextInput <span class="keyword">extends</span> React.Component &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.textInputRef = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.focusTextInput = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 使用原生 DOM API 使 text 输入框获得焦点</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.textInputRef) <span class="keyword">this</span>.textInputRef.focus();</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="comment">// 组件挂载后，让文本框自动获得焦点</span></span><br><span class="line">    <span class="keyword">this</span>.focusTextInput();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">// 使用 `ref` 的回调函数将 text 输入框 DOM 节点的引用存储到 React</span></span><br><span class="line">    <span class="comment">// 实例上（比如 this.textInputRef</span></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;input</span><br><span class="line">          <span class="keyword">type</span>=<span class="string">"text"</span></span><br><span class="line">          ref=&#123;<span class="function"><span class="params">ref</span> =&gt;</span> <span class="keyword">this</span>.textInputRef = ref&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">        &lt;input</span><br><span class="line">          <span class="keyword">type</span>=<span class="string">"button"</span></span><br><span class="line">          value=<span class="string">"Focus the text input"</span></span><br><span class="line">          onClick=&#123;<span class="keyword">this</span>.focusTextInput&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>获取子组件的元素DOM, 可以通过给子组件传获取ref的回调props获得，代码如下<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CustomTextInput</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;input ref=&#123;props.inputRef&#125; &gt;&lt;<span class="regexp">/input&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Parent <span class="keyword">extends</span> React.Component &#123;</span><br><span class="line"> <span class="keyword">constructor</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.inputElement = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">     <span class="keyword">if</span> (<span class="keyword">this</span>.inputElement) <span class="built_in">console</span>.log(<span class="keyword">this</span>.inputElement)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;CustomTextInput</span><br><span class="line">        inputRef=&#123;<span class="function"><span class="params">el</span> =&gt;</span> <span class="keyword">this</span>.inputElement = el&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="React-createRef"><a href="#React-createRef" class="headerlink" title="React.createRef()"></a><code>React.createRef()</code></h4><p><code>React.createRef()</code> 创建一个能够通过 <code>ref</code> 属性附加到 <code>React</code> 元素的 <code>ref</code><br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> MyComponent <span class="keyword">extends</span> React.Component &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.myRef = React.createRef();</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;div ref=&#123;<span class="keyword">this</span>.myRef&#125; /&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当 <code>ref</code> 被传递给 <code>render</code> 中的元素时，对该节点的引用可以在 <code>ref</code> 的 <code>current</code> 属性中被访问<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> node = <span class="keyword">this</span>.myRef.current;</span><br></pre></td></tr></table></figure></p>
+<p>在极少数情况下，开发中需要在父组件中引用子组件的<code>DOM</code>节点，虽然可以向子组件添加<code>ref</code>,但是只能获取到子组件实例而不是<code>DOM</code>节点。在这种情况下可以使用<strong><code>Refs</code>转发</strong>。<strong><code>Refs</code>转发使组件可以像暴露自己的ref一样暴露子组件的ref</strong>。<br>先看代码：<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FancyButton = React.forwardRef(<span class="function">(<span class="params">props, ref</span>) =&gt;</span> (</span><br><span class="line">  &lt;button ref=&#123;ref&#125; className=<span class="string">"FancyButton"</span>&gt;</span><br><span class="line">    &#123;props.children&#125;</span><br><span class="line">  &lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">));</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">class MyComponent extends React.Component &#123;</span></span><br><span class="line"><span class="regexp">  constructor(props) &#123;</span></span><br><span class="line"><span class="regexp">    super(props);</span></span><br><span class="line"><span class="regexp">    this.buttonRef = React.createRef();</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  componentDidMount() &#123;</span></span><br><span class="line"><span class="regexp">     console.log(this.buttonRef)</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    return &lt;FancyButton ref=&#123;this.buttonRef&#125;&gt;Click me!&lt;/</span>FancyButton&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>React.forwardRef</code> 接受一个渲染函数，其接收 <code>props</code> 和 <code>ref</code> 参数并返回一个 <code>React</code> 节点<br>这样，就可以通过<code>FancyButton</code>组件获取底层<code>DOM</code>节点<code>button</code>的<code>ref</code><br>上述示例主要步骤如下：<br>1.通过调用 <code>React.createRef</code> 创建了一个 <code>React ref</code> 并将其赋值给 <code>ref</code> 变量。<br>2.通过指定 <code>ref</code> 为 <code>JSX</code> 属性，将其向下传递给 <code>&lt;FancyButton ref={ref}&gt;</code>。<br>3.<code>React</code> 传递 <code>ref</code> 给 <code>fowardRef</code> 内函数 <code>(props, ref) =&gt; ...</code>，作为其第二个参数。<br>4.向下转发该 <code>ref</code> 参数到 <code>&lt;button ref={ref}&gt;</code>，将其指定为 JSX 属性。<br>5.当 <code>ref</code> 挂载完成，<code>ref.current</code> 将指向 <code>&lt;button&gt; DOM</code>节点。</p>
+<h3 id="Refs转发在高阶组件-HOC-中的应用"><a href="#Refs转发在高阶组件-HOC-中的应用" class="headerlink" title="Refs转发在高阶组件(HOC)中的应用"></a><code>Refs</code>转发在高阶组件(<code>HOC</code>)中的应用</h3><p>以下代码为输出组件 <code>props</code> 到控制台的<code>HOC</code><br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logProps</span>(<span class="params">WrappedComponent</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">class</span> LogProps <span class="keyword">extends</span> React.Component &#123;</span><br><span class="line">    componentDidUpdate(prevProps) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'old props:'</span>, prevProps);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'new props:'</span>, <span class="keyword">this</span>.props);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">      <span class="keyword">return</span> &lt;WrappedComponent &#123;...this.props&#125; /&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> LogProps;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>“logProps”HOC 透传（<code>pass through</code>）所有 <code>props</code> 到其包裹的组件, 但是<code>ref</code>将不会透传下去, 因为 <code>ref</code> 不是 <code>prop</code> 属性<br>如果对 <code>HOC</code> 添加 <code>ref</code>，该 <code>ref</code> 将引用最外层的容器组件，而不是被包裹的组件<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> FancyButton <span class="keyword">from</span> <span class="string">'./FancyButton'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ref = React.createRef();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 导入的 FancyButton 组件是高阶组件（HOC）LogProps。</span></span><br><span class="line"><span class="comment">// 尽管渲染结果将是一样的，</span></span><br><span class="line"><span class="comment">// 但 ref 将指向 LogProps 而不是内部的 FancyButton 组件！</span></span><br><span class="line"><span class="comment">// 这意味着不能调用例如 ref.current.focus() 这样的方法</span></span><br><span class="line">&lt;FancyButton</span><br><span class="line">  label=<span class="string">"Click Me"</span></span><br><span class="line">  handleClick=&#123;handleClick&#125;</span><br><span class="line">  ref=&#123;ref&#125;</span><br><span class="line">/&gt;;</span><br></pre></td></tr></table></figure></p>
+<p>在这种情况下可以使用 <code>React.forwardRef API</code> 明确地将 <code>ref</code> 转发到内部的 <code>FancyButton</code> 组件。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logProps</span>(<span class="params">Component</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">class</span> LogProps <span class="keyword">extends</span> React.Component &#123;</span><br><span class="line">    componentDidUpdate(prevProps) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'old props:'</span>, prevProps);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'new props:'</span>, <span class="keyword">this</span>.props);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123;forwardedRef, ...rest&#125; = <span class="keyword">this</span>.props;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 将自定义的 prop 属性 “forwardedRef” 定义为 ref</span></span><br><span class="line">      <span class="keyword">return</span> &lt;Component ref=&#123;forwardedRef&#125; &#123;...rest&#125; /&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 注意 React.forwardRef 回调的第二个参数 “ref”。</span></span><br><span class="line">  <span class="comment">// 可以将其作为常规 prop 属性传递给 LogProps，例如 “forwardedRef”</span></span><br><span class="line">  <span class="comment">// 然后它就可以被挂载到被 LogPros 包裹的子组件上。</span></span><br><span class="line">  <span class="keyword">return</span> React.forwardRef(<span class="function">(<span class="params">props, ref</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;LogProps &#123;...props&#125; forwardedRef=&#123;ref&#125; /&gt;;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>全文总结：</p>
+<blockquote>
+<p>元素<code>Dom</code>可以使用回调<code>ref</code>函数和<code>React.createRef</code>获取, 子组件元素<code>Dom</code>可以给子组件传<code>ref</code>的<code>props</code>获取, 还可以使用<code>React.forwardRef</code>转发<code>ref</code>的形式获取</p>
+</blockquote>
+<p>最后可以通过下面的代码加强理解：</p>
+<iframe src="https://codesandbox.io/embed/reactzhirefsxiangjie-rggc3?autoresize=1&fontsize=14&hidenavigation=1&view=editor" title="React之Refs详解" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
-Refs使用场景
-管理焦点，文本选择或媒体播放
-触发强制动画
-集成第三方DOM库
-
-创建RefsRefs创建有两种方式：
-
-通过回调Refs创建
-使用React.createRef()创建(React 16.3 版本引入)
-
-回调Refs通过ref回
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/27/React之Refs详解 /#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
     
@@ -570,14 +428,38 @@ Refs使用场景
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/React/" rel="tag"># React</a>
+          
+            <a href="/tags/Refs/" rel="tag"># Refs</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/30/Failed-to-minify-the-code-from-this-file/" rel="prev" title="Failed to minify the code from this file">
+                Failed to minify the code from this file <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -587,10 +469,11 @@ Refs使用场景
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -598,6 +481,10 @@ Refs使用场景
 
 
           
+
+  
+
+
 
         </div>
         
@@ -618,8 +505,17 @@ Refs使用场景
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -697,6 +593,22 @@ Refs使用场景
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Refs使用场景"><span class="nav-number">1.</span> <span class="nav-text">Refs使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Refs"><span class="nav-number">1.1.</span> <span class="nav-text">创建Refs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#回调Refs"><span class="nav-number">1.1.1.</span> <span class="nav-text">回调Refs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React-createRef"><span class="nav-number">1.1.2.</span> <span class="nav-text">React.createRef()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Refs转发在高阶组件-HOC-中的应用"><span class="nav-number">1.2.</span> <span class="nav-text">Refs转发在高阶组件(HOC)中的应用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -858,6 +770,10 @@ Refs使用场景
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
