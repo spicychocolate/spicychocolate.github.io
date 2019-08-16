@@ -330,9 +330,7 @@
 
       
         
-          
-          两种数据格式间相互转换12345678910111213141516171819var entry = &#123;  'a.b.c.dd': 'abcdd',  'a.d.xx': 'adxx',  'a.e': 'ae'&#125;;var output = &#123;  a: &#123; 
-          ...
+          <p>两种数据格式间相互转换<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> entry = &#123;</span><br><span class="line">  <span class="string">'a.b.c.dd'</span>: <span class="string">'abcdd'</span>,</span><br><span class="line">  <span class="string">'a.d.xx'</span>: <span class="string">'adxx'</span>,</span><br><span class="line">  <span class="string">'a.e'</span>: <span class="string">'ae'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> output = &#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">   b: &#123;</span><br><span class="line">     c: &#123;</span><br><span class="line">       dd: <span class="string">'abcdd'</span></span><br><span class="line">     &#125;</span><br><span class="line">   &#125;,</span><br><span class="line">   d: &#123;</span><br><span class="line">     xx: <span class="string">'adxx'</span></span><br><span class="line">   &#125;,</span><br><span class="line">   e: <span class="string">'ae'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/08/15/对象数据格式转化/#more" rel="contents">
@@ -456,9 +454,7 @@
 
       
         
-          
-          1234567891011121314151617function permutations(string) &#123;    if (string.length == 1) &#123;        return [string]    &#125; else &#123;        co
-          ...
+          <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">permutations</span>(<span class="params">string</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (string.length == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> [string]</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> array = string.split(<span class="string">''</span>) </span><br><span class="line">         <span class="keyword">return</span> array.map(<span class="function">(<span class="params">e, i</span>) =&gt;</span> &#123;</span><br><span class="line">             <span class="comment">// 取出当前元素之外的其他元素</span></span><br><span class="line">            <span class="keyword">let</span> newString = string.slice(<span class="number">0</span>,i) + string.slice(i+<span class="number">1</span>)</span><br><span class="line">            <span class="comment">// 其他元素进行全排列</span></span><br><span class="line">            <span class="keyword">return</span> permutations(newString).map(<span class="function">(<span class="params">e2</span>) =&gt;</span> e+e2)</span><br><span class="line">        &#125;)</span><br><span class="line">        .reduce(<span class="function">(<span class="params">r,e</span>) =&gt;</span> r.concat(e), [])</span><br><span class="line">        .sort()</span><br><span class="line">        .filter(<span class="function">(<span class="params">e,i,a</span>) =&gt;</span> (i==<span class="number">0</span>) || a[i<span class="number">-1</span>] != e)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">permutations(<span class="string">'aabb'</span>)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/08/15/js全排列/#more" rel="contents">
@@ -582,9 +578,12 @@
 
       
         
-          
-          为什么使用脚手架？大家都晓得，使用脚手架可帮助我们快速构建项目。我们可以通过Yeoman搭建一个自己的脚手架，然后发布到npm或公司内部搭建的仓库，供小伙伴使用。附一个已搭建好的脚手架：https://github.com/spicychocolate/generator-spicychocolat
-          ...
+          <h2 id="为什么使用脚手架？"><a href="#为什么使用脚手架？" class="headerlink" title="为什么使用脚手架？"></a>为什么使用脚手架？</h2><p>大家都晓得，使用脚手架可帮助我们快速构建项目。我们可以通过<a href="http://yeoman.io/" target="_blank" rel="noopener">Yeoman</a>搭建一个自己的脚手架，然后发布到npm或公司内部搭建的仓库，供小伙伴使用。<br>附一个已搭建好的脚手架：<a href="https://github.com/spicychocolate/generator-spicychocolate" target="_blank" rel="noopener">https://github.com/spicychocolate/generator-spicychocolate</a></p>
+<h2 id="如何搭建一个脚手架"><a href="#如何搭建一个脚手架" class="headerlink" title="如何搭建一个脚手架"></a>如何搭建一个脚手架</h2><h3 id="安装工具"><a href="#安装工具" class="headerlink" title="安装工具"></a>安装工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yo</span><br><span class="line">npm install -g generator-generator // 脚手架生成工具</span><br></pre></td></tr></table></figure>
+<h3 id="初始化脚手架"><a href="#初始化脚手架" class="headerlink" title="初始化脚手架"></a>初始化脚手架</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yo generator</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：初始化时要指定keyswords为yeoman-generator, 或手动在package.json添加</p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/08/06/使用yeoman搭建前端脚手架/#more" rel="contents">
@@ -730,10 +729,12 @@
 
       
         
-          
-          
-众所周知，Vue2.x采用Object.defineProperty的getter、setter进行数据劫持的;Vue3.x将采用Proxy替代Object.defineProperty,Proxy是ES6（ES2015）中新增的特性，也可以用做数据劫持。所谓数据劫持，指的是在访问或修改某个属性时
-          ...
+          <blockquote>
+<p>众所周知，<code>Vue2.x</code>采用<code>Object.defineProperty</code>的<code>getter</code>、<code>setter</code>进行数据劫持的;Vue3.x将采用<code>Proxy</code>替代<code>Object.defineProperty</code>,<code>Proxy</code>是<code>ES6</code>（<code>ES2015</code>）中新增的特性，也可以用做数据劫持。所谓数据劫持，指的是在访问或修改某个属性时，通过代码拦截这个行为，进行额外的操作或修改返回的结果。<br>数据劫持应用最多的就是双向绑定。</p>
+</blockquote>
+<h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h3><p><code>Object.defineProperty</code>的主要问题有三个：</p>
+<h4 id="1-无法监听数组变化"><a href="#1-无法监听数组变化" class="headerlink" title="1.无法监听数组变化"></a>1.无法监听数组变化</h4><p>代码如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'arr'</span>, &#123;</span><br><span class="line">  <span class="keyword">get</span> () &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'get arr'</span>)</span><br><span class="line">    <span class="keyword">return</span> arr</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span> (newVal) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'set'</span>, newVal)</span><br><span class="line">    arr = newVal</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">obj.arr.push(<span class="number">4</span>) <span class="comment">// 只会打印 get arr, 不会打印 set</span></span><br><span class="line">obj.arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>] <span class="comment">// 这个能正常 set</span></span><br></pre></td></tr></table></figure></p>
+<p>数组的原生操作方法<code>push</code>、<code>pop</code>、<code>shift</code>、<code>unshift</code>、<code>splice</code>、<code>sort</code>、<code>reverse</code>不会触发<code>set</code>。<code>Vue</code>的做法是把这些方法重写来实现数组劫持，简单代码实现如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> aryMethods = [<span class="string">'push'</span>, <span class="string">'pop'</span>, <span class="string">'shift'</span>, <span class="string">'unshift'</span>, <span class="string">'splice'</span>, <span class="string">'sort'</span>, <span class="string">'reverse'</span>];</span><br><span class="line"><span class="keyword">const</span> arrayAugmentations = [];</span><br><span class="line">aryMethods.forEach(<span class="function">(<span class="params">method</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 原生Array的原型方法</span></span><br><span class="line">  <span class="keyword">let</span> original = <span class="built_in">Array</span>.prototype[method];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 将 push, pop 等封装好的方法定义在对象 arrayAugmentations 的属性上</span></span><br><span class="line">  <span class="comment">// 注意：是实例属性而非原型属性</span></span><br><span class="line">  arrayAugmentations[method] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'我被改变啦!'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用对应的原生方法并返回结果</span></span><br><span class="line">    <span class="keyword">return</span> original.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">let</span> list = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="comment">// 将我们要监听的数组的原型指针指向上面定义的空数组对象</span></span><br><span class="line"><span class="comment">// 这样就能在调用 push, pop 这些方法时走进我们刚定义的方法，多了一句 console.log</span></span><br><span class="line">list.__proto__ = arrayAugmentations;</span><br><span class="line">list.push(<span class="string">'d'</span>);  <span class="comment">// 我被改变啦！</span></span><br><span class="line"><span class="comment">// 这个 list2 是个普通的数组，所以调用 push 不会走到我们的方法里面。</span></span><br><span class="line"><span class="keyword">let</span> list2 = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line">list2.push(<span class="string">'d'</span>);  <span class="comment">// 不输出内容</span></span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/06/11/Proxy与Object.defineProperty/#more" rel="contents">
@@ -879,10 +880,9 @@
 
       
         
-          
-          前言Event Loop即事件循环，是在浏览器或Node的一种解决JavaScript单线程运行时不会阻塞的运行机制，也是在JavaScript中使用异步的原理。
-为什么Javascript是单线程的？众所周知，Javascript是单线程的，也就是说，同一时间只能做一件事。Javascript作为
-          ...
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Event Loop</code>即事件循环，是在浏览器或<code>Node</code>的一种解决<code>JavaScript</code>单线程运行时不会阻塞的运行机制，也是在<code>JavaScript</code>中使用异步的原理。</p>
+<h3 id="为什么Javascript是单线程的？"><a href="#为什么Javascript是单线程的？" class="headerlink" title="为什么Javascript是单线程的？"></a>为什么<code>Javascript</code>是单线程的？</h3><p>众所周知，<code>Javascript</code>是单线程的，也就是说，同一时间只能做一件事。<code>Javascript</code>作为浏览器脚本语言，主要用来处理与用户的的交互、网络请求以及操作<code>DOM</code>。<br>假设在同一时间，两个线程分别对同一<code>DOM</code>进行删除、修改，这时浏览器无法判断两个线程执行的先后顺序，为了避免出现这种问题，<code>Javascript</code>必须是单线程的。<br><code>Javascript</code>是单线程的，在主线程中依次执行所有操作任务，如果某个任务是个耗时任务（比如请求某个接口、加载高清图片），这个任务不执行完后面的任务就不能执行，使线程阻塞。为了防止线程阻塞，于是有了异步的概念。</p>
+<h4 id="Javascript异步执行的运行机制"><a href="#Javascript异步执行的运行机制" class="headerlink" title="Javascript异步执行的运行机制"></a><code>Javascript</code>异步执行的运行机制</h4><p>1.所有任务都在主线程上执行，形成一个执行栈。<br>2.主线程之外，还存在一个”任务队列”（<code>task queue</code>）。只要异步任务有了运行结果，就在”任务队列”之中放置一个事件。<br>3.一旦”执行栈”中的所有同步任务执行完毕，系统就会读取”任务队列”。那些对应的异步任务，结束等待状态，进入执行栈并开始执行。<br>4.主线程不断重复上面的第三步<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/06/06/Event-Loop-Javascript中的事件循环机制/#more" rel="contents">
@@ -892,7 +892,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -1028,9 +1028,7 @@
 
       
         
-          
-          new 实现原理1234567891011121314function _new()&#123;    // 1.创建空对象    const target = &#123;&#125;    const [constructor, ...args] = [...arguments]    // 2
-          ...
+          <h4 id="new-实现原理"><a href="#new-实现原理" class="headerlink" title="new 实现原理"></a>new 实现原理</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_new</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 1.创建空对象</span></span><br><span class="line">    <span class="keyword">const</span> target = &#123;&#125;</span><br><span class="line">    <span class="keyword">const</span> [<span class="keyword">constructor</span>, ...args] = [...arguments]</span><br><span class="line">    // 2.空对象隐式原型指向构造函数显示原型, 执行原型链接，target是<span class="keyword">constructor</span>的实例</span><br><span class="line">    target.__proto__ = <span class="keyword">constructor</span>.property</span><br><span class="line">    // 3.改变空对象this指向为<span class="keyword">constructor</span>，并立即执行</span><br><span class="line">    const result = <span class="keyword">constructor</span>.apply(target, args);</span><br><span class="line">    // 4.判断执行结果为object或function并返回，否则返回空对象</span><br><span class="line">    if(result &amp;&amp; typeof result in ['object', 'function'])&#123;</span><br><span class="line">       <span class="keyword">return</span> result</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/05/30/手写代码系列/#more" rel="contents">
@@ -1176,9 +1174,7 @@
 
       
         
-          
-          用create-react-app生成的项目运行npm run build命令报以下错误Failed to minify the code from this file, 不能压缩source-map的代码解决方式：1.将source-map以第三方插件的方式在index.html引入12// in
-          ...
+          <p><strong>用<code>create-react-app</code>生成的项目运行<code>npm run build</code>命令报以下错误</strong><br><img src="/2019/05/30/Failed-to-minify-the-code-from-this-file/error.png"><br><code>Failed to minify the code from this file</code>, 不能压缩<code>source-map</code>的代码<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/05/30/Failed-to-minify-the-code-from-this-file/#more" rel="contents">
@@ -1188,7 +1184,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -1324,22 +1320,18 @@
 
       
         
-          
-          
-本文主要涉及Refs与DOM, Refs转发
-
-Refs使用场景
-管理焦点，文本选择或媒体播放
-触发强制动画
-集成第三方DOM库
-
-创建RefsRefs创建有两种方式：
-
-通过回调Refs创建
-使用React.createRef()创建(React 16.3 版本引入)
-
-回调Refs通过ref回
-          ...
+          <blockquote>
+<p>本文主要涉及<code>Refs</code>与<code>DOM</code>, <code>Refs</code>转发</p>
+</blockquote>
+<h2 id="Refs使用场景"><a href="#Refs使用场景" class="headerlink" title="Refs使用场景"></a>Refs使用场景</h2><ul>
+<li>管理焦点，文本选择或媒体播放</li>
+<li>触发强制动画</li>
+<li>集成第三方<code>DOM</code>库</li>
+</ul>
+<h3 id="创建Refs"><a href="#创建Refs" class="headerlink" title="创建Refs"></a>创建Refs</h3><p>Refs创建有两种方式：</p>
+<ul>
+<li>通过回调<code>Refs</code>创建</li>
+<li>使用<code>React.createRef()</code>创建(<code>React 16.3</code> 版本引入)
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/05/27/React之Refs详解 /#more" rel="contents">
@@ -1349,7 +1341,7 @@ Refs使用场景
           <!--/noindex-->
         
       
-    </div>
+    </li></ul></div>
     
     
     

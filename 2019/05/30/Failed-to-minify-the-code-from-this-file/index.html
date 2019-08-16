@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="用create-react-app生成的项目运行npm run build命令报以下错误Failed to minify the code from this file, 不能压缩source-map的代码解决方式：1.将source-map以第三方插件的方式在index.html引入12// index.html&amp;lt;script src=&quot;https://unpkg.com/source-m">
+<meta name="description" content="用create-react-app生成的项目运行npm run build命令报以下错误Failed to minify the code from this file, 不能压缩source-map的代码">
 <meta name="keywords" content="React,create-react-app">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Failed to minify the code from this file">
 <meta property="og:url" content="http://spicychocolate.github.com/2019/05/30/Failed-to-minify-the-code-from-this-file/index.html">
 <meta property="og:site_name" content="SPICYCHOCOLATE">
-<meta property="og:description" content="用create-react-app生成的项目运行npm run build命令报以下错误Failed to minify the code from this file, 不能压缩source-map的代码解决方式：1.将source-map以第三方插件的方式在index.html引入12// index.html&amp;lt;script src=&quot;https://unpkg.com/source-m">
+<meta property="og:description" content="用create-react-app生成的项目运行npm run build命令报以下错误Failed to minify the code from this file, 不能压缩source-map的代码">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://spicychocolate.github.com/2019/05/30/Failed-to-minify-the-code-from-this-file/error.png">
-<meta property="og:updated_time" content="2019-05-30T03:14:22.560Z">
+<meta property="og:updated_time" content="2019-08-16T07:28:04.655Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Failed to minify the code from this file">
-<meta name="twitter:description" content="用create-react-app生成的项目运行npm run build命令报以下错误Failed to minify the code from this file, 不能压缩source-map的代码解决方式：1.将source-map以第三方插件的方式在index.html引入12// index.html&amp;lt;script src=&quot;https://unpkg.com/source-m">
+<meta name="twitter:description" content="用create-react-app生成的项目运行npm run build命令报以下错误Failed to minify the code from this file, 不能压缩source-map的代码">
 <meta name="twitter:image" content="http://spicychocolate.github.com/2019/05/30/Failed-to-minify-the-code-from-this-file/error.png">
 
 
@@ -355,7 +355,7 @@
       
 
       
-        <p><strong>用<code>create-react-app</code>生成的项目运行<code>npm run build</code>命令报以下错误</strong><br><img src="/2019/05/30/Failed-to-minify-the-code-from-this-file/error.png"><br><code>Failed to minify the code from this file</code>, 不能压缩<code>source-map</code>的代码<br>解决方式：<br><strong>1.将<code>source-map</code>以第三方插件的方式在<code>index.html</code>引入</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.html</span></span><br><span class="line">&lt;script src=<span class="string">"https://unpkg.com/source-map@0.7.3/dist/source-map.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+        <p><strong>用<code>create-react-app</code>生成的项目运行<code>npm run build</code>命令报以下错误</strong><br><img src="/2019/05/30/Failed-to-minify-the-code-from-this-file/error.png"><br><code>Failed to minify the code from this file</code>, 不能压缩<code>source-map</code>的代码<br><a id="more"></a><br>解决方式：<br><strong>1.将<code>source-map</code>以第三方插件的方式在<code>index.html</code>引入</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.html</span></span><br><span class="line">&lt;script src=<span class="string">"https://unpkg.com/source-map@0.7.3/dist/source-map.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
 <p><strong>2.修改<code>webpack</code>配置,添加外部依赖配置</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line">externals: &#123;</span><br><span class="line">    <span class="string">'source-map'</span>: <span class="string">'sourceMap'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong>3.在代码中引用</strong><br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> SourceMap <span class="keyword">from</span> <span class="string">'source-map'</span></span><br></pre></td></tr></table></figure></p>
 <p>以上</p>

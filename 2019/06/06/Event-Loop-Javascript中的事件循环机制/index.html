@@ -88,7 +88,7 @@
 <meta property="og:description" content="前言Event Loop即事件循环，是在浏览器或Node的一种解决JavaScript单线程运行时不会阻塞的运行机制，也是在JavaScript中使用异步的原理。 为什么Javascript是单线程的？众所周知，Javascript是单线程的，也就是说，同一时间只能做一件事。Javascript作为浏览器脚本语言，主要用来处理与用户的的交互、网络请求以及操作DOM。假设在同一时间，两个线程分别对同">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://spicychocolate.github.com/2019/06/06/Event-Loop-Javascript中的事件循环机制/loop.png">
-<meta property="og:updated_time" content="2019-06-11T10:01:06.991Z">
+<meta property="og:updated_time" content="2019-08-16T07:28:14.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Event Loop--Javascript中的事件循环机制">
 <meta name="twitter:description" content="前言Event Loop即事件循环，是在浏览器或Node的一种解决JavaScript单线程运行时不会阻塞的运行机制，也是在JavaScript中使用异步的原理。 为什么Javascript是单线程的？众所周知，Javascript是单线程的，也就是说，同一时间只能做一件事。Javascript作为浏览器脚本语言，主要用来处理与用户的的交互、网络请求以及操作DOM。假设在同一时间，两个线程分别对同">
@@ -357,7 +357,7 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Event Loop</code>即事件循环，是在浏览器或<code>Node</code>的一种解决<code>JavaScript</code>单线程运行时不会阻塞的运行机制，也是在<code>JavaScript</code>中使用异步的原理。</p>
 <h3 id="为什么Javascript是单线程的？"><a href="#为什么Javascript是单线程的？" class="headerlink" title="为什么Javascript是单线程的？"></a>为什么<code>Javascript</code>是单线程的？</h3><p>众所周知，<code>Javascript</code>是单线程的，也就是说，同一时间只能做一件事。<code>Javascript</code>作为浏览器脚本语言，主要用来处理与用户的的交互、网络请求以及操作<code>DOM</code>。<br>假设在同一时间，两个线程分别对同一<code>DOM</code>进行删除、修改，这时浏览器无法判断两个线程执行的先后顺序，为了避免出现这种问题，<code>Javascript</code>必须是单线程的。<br><code>Javascript</code>是单线程的，在主线程中依次执行所有操作任务，如果某个任务是个耗时任务（比如请求某个接口、加载高清图片），这个任务不执行完后面的任务就不能执行，使线程阻塞。为了防止线程阻塞，于是有了异步的概念。</p>
-<h4 id="Javascript异步执行的运行机制"><a href="#Javascript异步执行的运行机制" class="headerlink" title="Javascript异步执行的运行机制"></a><code>Javascript</code>异步执行的运行机制</h4><p>1.所有任务都在主线程上执行，形成一个执行栈。<br>2.主线程之外，还存在一个”任务队列”（<code>task queue</code>）。只要异步任务有了运行结果，就在”任务队列”之中放置一个事件。<br>3.一旦”执行栈”中的所有同步任务执行完毕，系统就会读取”任务队列”。那些对应的异步任务，结束等待状态，进入执行栈并开始执行。<br>4.主线程不断重复上面的第三步</p>
+<h4 id="Javascript异步执行的运行机制"><a href="#Javascript异步执行的运行机制" class="headerlink" title="Javascript异步执行的运行机制"></a><code>Javascript</code>异步执行的运行机制</h4><p>1.所有任务都在主线程上执行，形成一个执行栈。<br>2.主线程之外，还存在一个”任务队列”（<code>task queue</code>）。只要异步任务有了运行结果，就在”任务队列”之中放置一个事件。<br>3.一旦”执行栈”中的所有同步任务执行完毕，系统就会读取”任务队列”。那些对应的异步任务，结束等待状态，进入执行栈并开始执行。<br>4.主线程不断重复上面的第三步<br><a id="more"></a></p>
 <h4 id="宏任务与微任务"><a href="#宏任务与微任务" class="headerlink" title="宏任务与微任务"></a>宏任务与微任务</h4><p>异步任务分为宏任务(<code>macrotask</code>)与微任务(<code>microtask</code>)，不同的<code>API</code>注册的任务会依次进入自身对应的队列中，然后等待 <code>Event Loop</code>将它们依次压入执行栈中执行。<br><strong>宏任务(<code>macrotask</code>)</strong><br><code>script</code>(整体代码)、<code>setTimeout</code>、<code>setInterval</code>、<code>UI</code> 渲染、 <code>I/O</code>、<code>postMessage</code>、<code>MessageChannel</code>、<code>setImmediate</code>(<code>Node.js</code> 环境)<br><strong>微任务(<code>microtask</code>)</strong><br><code>Promise</code>、 <code>MutaionObserver</code>、<code>process.nextTick</code>(<code>Node.js</code>环境）</p>
 <h3 id="Event-Loop-事件循环"><a href="#Event-Loop-事件循环" class="headerlink" title="Event Loop(事件循环)"></a>Event Loop(事件循环)</h3><p><code>Event Loop</code>(事件循环)中，每一次循环称为 <code>tick</code>, 每一次<code>tick</code>的任务如下：</p>
 <ul>
