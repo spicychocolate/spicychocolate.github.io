@@ -17,7 +17,7 @@ tags:
 Refs创建有两种方式：
 - 通过回调`Refs`创建
 - 使用`React.createRef()`创建(`React 16.3` 版本引入)
-
+<!-- more -->
 
 #### 回调`Refs`
 通过`ref`回调函数获取元素DOM,代码如下：

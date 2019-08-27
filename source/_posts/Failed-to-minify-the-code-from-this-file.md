@@ -10,6 +10,7 @@ categories:
 **用`create-react-app`生成的项目运行`npm run build`命令报以下错误**
 {% asset_img error.png %}
 `Failed to minify the code from this file`, 不能压缩`source-map`的代码
+<!-- more -->
 解决方式：
 **1.将`source-map`以第三方插件的方式在`index.html`引入**
 ```javascript
