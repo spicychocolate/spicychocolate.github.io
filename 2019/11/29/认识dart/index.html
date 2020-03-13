@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="dart,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Dart是谷歌开发的计算机编程语言。用于web、服务器、移动应用和物联网等领域的开发。也是开源的软件。Dart设计的时候就吸取了其他语言（Java、C、JavaScript等） 的各种优点， Dart非常容易使用。Dart是面向对象的、类定义的、单继承的语言。它的语法类似 c 语言，支持接口interface、混入mixins、抽象类abstract classes、具体化泛型reified g">
+<meta name="keywords" content="dart">
+<meta property="og:type" content="article">
+<meta property="og:title" content="认识dart">
+<meta property="og:url" content="http://spicychocolate.github.com/2019/11/29/认识dart/index.html">
+<meta property="og:site_name" content="SPICYCHOCOLATE">
+<meta property="og:description" content="Dart是谷歌开发的计算机编程语言。用于web、服务器、移动应用和物联网等领域的开发。也是开源的软件。Dart设计的时候就吸取了其他语言（Java、C、JavaScript等） 的各种优点， Dart非常容易使用。Dart是面向对象的、类定义的、单继承的语言。它的语法类似 c 语言，支持接口interface、混入mixins、抽象类abstract classes、具体化泛型reified g">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://spicychocolate.github.com/2019/11/29/认识dart/dart.png">
+<meta property="og:image" content="http://spicychocolate.github.com/2019/11/29/认识dart/hello_word.png">
+<meta property="og:updated_time" content="2019-11-29T06:48:22.343Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="认识dart">
+<meta name="twitter:description" content="Dart是谷歌开发的计算机编程语言。用于web、服务器、移动应用和物联网等领域的开发。也是开源的软件。Dart设计的时候就吸取了其他语言（Java、C、JavaScript等） 的各种优点， Dart非常容易使用。Dart是面向对象的、类定义的、单继承的语言。它的语法类似 c 语言，支持接口interface、混入mixins、抽象类abstract classes、具体化泛型reified g">
+<meta name="twitter:image" content="http://spicychocolate.github.com/2019/11/29/认识dart/dart.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://spicychocolate.github.com/2019/11/29/认识dart/">
+
+
+
+
+
+  <title>认识dart | SPICYCHOCOLATE</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/spicychocolate" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SPICYCHOCOLATE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://spicychocolate.github.com/2019/11/29/认识dart/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SPICYCHOCOLATE">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/22002601?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SPICYCHOCOLATE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">认识dart</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-29T10:05:26+08:00">
+                2019-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><code>Dart</code>是谷歌开发的计算机编程语言。用于<code>web</code>、服务器、移动应用和物联网等领域的开发。也是开源的软件。<br><code>Dart</code>设计的时候就吸取了其他语言（<code>Java</code>、<code>C</code>、<code>JavaScript</code>等） 的各种优点， <code>Dart</code>非常容易使用。<br><code>Dart</code>是面向对象的、类定义的、单继承的语言。它的语法类似 c 语言，支持接口<code>interface</code>、混入<code>mixins</code>、抽象类<code>abstract classes</code>、具体化泛型<code>reified generics</code>、可选类型<code>option typing</code> 和 <code>sound type system</code>。<br><code>Dart2</code>成为强类型语言<br><code>Dart2</code>有三大运行环境, 分别是<code>Flutter</code>, <code>Web</code>和<code>Server</code>. 其中<code>Flutter</code>框架自带了<code>Dart</code>语言, 可以用于开发跨平台的<code>iOS</code>和<code>Android</code>应用. 而<code>Web</code>则是通过内置的<code>dart2js</code>命令将<code>Dart</code>转译为<code>JavaScript</code>语言后在浏览器环境运行.<code>Server</code>的目标是使用<code>Dart</code>语言开发后端服务程序, 程序通过<code>Dart</code>虚拟机运行.</p>
+</blockquote>
+<h3 id="安装-dart"><a href="#安装-dart" class="headerlink" title="安装 dart"></a>安装 dart</h3><ol>
+<li>官网下载<a href="https://dart.dev/tools/sdk/archive" target="_blank" rel="noopener"><code>dart-sdk</code></a></li>
+<li>解压文件，将<code>dart-sdk</code>文件夹下的<code>bin</code>目录添加到环境变量</li>
+<li>打开命令行运行<code>dart</code>命令检查是否安装成功<img src="/2019/11/29/认识dart/dart.png">
+</li>
+</ol>
+<h3 id="第一行-dart"><a href="#第一行-dart" class="headerlink" title="第一行 dart"></a>第一行 dart</h3><p>新建<code>demo.dart</code>文件，打开<code>IED</code>,输入以下代码：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// demo.dart</span></span><br><span class="line"><span class="keyword">void</span> main()&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'hello word'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后再命令行中执行<code>dart demo.dart</code>:</p>
+<img src="/2019/11/29/认识dart/hello_word.png">
+<p><code>Dart</code>和绝大多数编译型语言一样，都要求<code>main</code>作为语言执行的入口(<code>entrypoint</code>)，而不是像<code>JavaScript</code>那样解释执行。所以显而易见，<code>Dart</code>是编译型语言。<br>但我们在运行<code>demo.dart</code>时并没有先编译，这是因为<code>Dart</code>通过<code>VM</code>来运行，在载入源码时先编译成字节码，再通过字节码执行，这样的好处是执行速度会比<code>JIT</code>(<code>Just in Time</code>)代码快很多，弊端就是代码的载入到真正执行的速度就比较慢了。所以，Dart 也支持编译成<code>AOT</code>(<code>Ahead of Time</code>)代码，这样代码载入运行的速度能得到很大的提升。</p>
+<h3 id="Dart语法初探"><a href="#Dart语法初探" class="headerlink" title="Dart语法初探"></a><code>Dart</code>语法初探</h3><h4 id="变量和类型"><a href="#变量和类型" class="headerlink" title="变量和类型"></a>变量和类型</h4><p>在 <code>Dart</code>中，我们可以用<code>var</code>或者具体的类型来声明一个变量：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'Bob'</span>;</span><br><span class="line"><span class="built_in">int</span> <span class="built_in">num</span> = <span class="number">9527</span>;</span><br></pre></td></tr></table></figure>
+<p>默认情况下，未初始化的变量的值都是 <code>null</code></p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> count;</span><br><span class="line"><span class="built_in">print</span>(count == <span class="keyword">null</span>); 	<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>这样我们就不用担心在一些情况下无法断定一个传递过来的变量到底是 <code>undefined</code> 还是<code>null</code>了。因为在<code>Dart</code>中，所有未定义的情况都是<code>null</code>。</p>
+<p><code>Dart</code>是类型安全的语言，并且所有类型都是对象类型，所有的类型的顶层都来自于 <code>Object</code>，理所当然地，<code>null</code>也是一个对象。所以，<code>var</code>关键字只是一个类型的引用，使用它所声明的对象只是该对象类型的一个引用，这个过程由编译器完成，并不需要关心。<br><code>Dart</code>拥有比较简单的内置类型，如 <code>Number</code>, <code>String</code>, <code>Boolean</code>, <code>List</code>, <code>Map</code>, <code>Runes</code>, <code>Symbols</code>。</p>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><p>函数是<code>Dart</code>执行的基本单元，在函数外的表达式不能获得正确的执行。<br>一个基本的函数如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> sayHello() &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">'hello'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果返回值是<code>void</code>，那么<code>void</code>是可以省略的。<br>如果你的函数体只有一行返回值，你可以用<strong>箭头函数</strong>：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bool</span> isZero(<span class="built_in">int</span> <span class="built_in">num</span>) =&gt; <span class="built_in">num</span> == <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>函数其实也是一个对象，你可以把函数作为参数传递或者赋值：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> loudify = (msg) =&gt; <span class="string">'!!! <span class="subst">$&#123;msg.toUpperCase()&#125;</span> !!!'</span>;</span><br><span class="line"><span class="built_in">print</span>(loudify(<span class="string">'hello'</span>) == <span class="string">'!!! HELLO !!!'</span>);</span><br></pre></td></tr></table></figure>
+<p>也可以用<strong>匿名函数</strong>来迭代 List:</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> list = [<span class="string">'apples'</span>, <span class="string">'bananas'</span>, <span class="string">'oranges'</span>];</span><br><span class="line">list.forEach((item) &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">'<span class="subst">$&#123;list.indexOf(item)&#125;</span>: <span class="subst">$item</span>'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><p><strong><code>?.</code>运算符：</strong>假设<code>Person</code>这个类有<code>sayHello()</code>函数，<code>p</code>是<code>Person</code>的一个实例。那么 <code>p?.sayHello()</code> 表示 <code>p</code> 为 <code>null</code>的时候避免抛出 <code>exception</code>。<br><strong><code>is</code>运算符：</strong>如果 <code>p</code>是 <code>Person</code>这个类的实例，那么 <code>p is Person</code>返回 <code>true</code>。<br><strong><code>??</code>运算符：</strong><code>a ?? b</code>表达式表示如果 <code>a</code>不为 <code>null</code>，返回 <code>a</code>的值，否则返回 <code>b</code>。<br><strong><code>??=</code>运算符：</strong><code>b ??= value</code>表示如果 <code>b</code>为 <code>null</code>则给 <code>b</code>赋值 <code>value</code>，否则不赋值。</p>
+<h4 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h4><p><code>Dart</code>保持了标准的流程控制语法：<code>if-else</code>, <code>for</code>, <code>while</code>, <code>do-while</code>, <code>break/continue</code>, <code>switch-case</code>, <code>assert</code>.<br>值得一提的是 <code>assert</code>，它可以阻止你的代码执行流程（和<code>C</code>中的 <code>assert</code>类似），不过它只在 <code>Dart</code>的 <code>check mode</code>有用（类似于开发环境），在 <code>production mode</code>无效。</p>
+<h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><p>在<code>Dart</code>中，声明并使用一个类很简单：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">  <span class="built_in">num</span> x;</span><br><span class="line">  <span class="built_in">num</span> y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="keyword">var</span> point = <span class="keyword">new</span> Point();</span><br><span class="line">  point.x = <span class="number">4</span>;</span><br><span class="line">  <span class="keyword">assert</span>(point.x == <span class="number">4</span>);</span><br><span class="line">  <span class="keyword">assert</span>(point.y == <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>构造函数</strong>：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">  <span class="built_in">num</span> x, y;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 常见的标准构造函数</span></span><br><span class="line">  Point(<span class="built_in">num</span> x, <span class="built_in">num</span> y) &#123;</span><br><span class="line">    <span class="keyword">this</span>.x = x;</span><br><span class="line">    <span class="keyword">this</span>.y = y;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 语法糖，作用和上面一样</span></span><br><span class="line">  Point(<span class="keyword">this</span>.x, <span class="keyword">this</span>.y);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 可以命名一个特殊的构造函数</span></span><br><span class="line">  Point.origin() &#123;</span><br><span class="line">  	x = <span class="number">0</span>;</span><br><span class="line">  	y = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 初始化成员列表，这里不能使用 this关键字给 x/y 赋值</span></span><br><span class="line">  Point()</span><br><span class="line">    : x = <span class="number">0</span>,</span><br><span class="line">      y = <span class="number">0</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'初始化成员列表'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>值得一提的是，<code>Dart</code> 没有 <code>public</code>、<code>private</code>这些关键字，方法名前面加上 <code>_</code>即可作为 <code>private</code>方法使用。默认都是 <code>public</code>。<br><code>Dart</code>还支持抽象类</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractContainer</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 这里可以定义构造函数、成员变量、方法等待</span></span><br><span class="line">  <span class="keyword">void</span> updateChildren(); <span class="comment">// 抽象方法.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SpecializedContainer</span> <span class="keyword">extends</span> <span class="title">AbstractContainer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">void</span> updateChildren() &#123;</span><br><span class="line">    <span class="comment">// 这里提供方法的实现，这样这个方法就不是抽象的了</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 未实现的抽象方法会抛一个 warning，但并不妨碍对象实例化</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// demo</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  breedMoreLlamas();</span><br><span class="line">&#125; on OutOfLlamasException &#123;</span><br><span class="line">  <span class="comment">// 特定类型的 exception</span></span><br><span class="line">  buyMoreLlamas();</span><br><span class="line">&#125; on Exception <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="comment">// 不确定什么类型的 exception</span></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">'Unknown exception: <span class="subst">$e</span>'</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="comment">// 没有类型，统一处理</span></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">'Something really unknown: <span class="subst">$e</span>'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="库"><a href="#库" class="headerlink" title="库"></a>库</h4><p>一门编程语言的生态取决于它的库，来看一看 <code>Dart</code>库导入的语法。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入 html库</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'dart:html'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只导入一部分</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:test/test.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 给个 alias</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:lib2/lib2.dart'</span> <span class="keyword">as</span> lib2;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只导入该库中的 foo</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:lib1/lib1.dart'</span> show foo;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 除了 foo全都导入</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:lib2/lib2.dart'</span> hide foo;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 懒加载</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:greetings/hello.dart'</span> deferred <span class="keyword">as</span> hello;</span><br></pre></td></tr></table></figure>
+<h3 id="Dart-的特性"><a href="#Dart-的特性" class="headerlink" title="Dart 的特性"></a>Dart 的特性</h3><ul>
+<li>单进程异步事件模型；</li>
+<li>强类型，可以类型推断；</li>
+<li><code>DartVM</code>，具有极高的运行效率和优秀的代码运行优化，根据早前的基准测试，性能比肩 <code>Java7</code> 的<code>JVM</code>；</li>
+<li>独特的隔离区( <code>Isolate</code> )，可以实现多线程；</li>
+<li>面向对象编程，一切数据类型均派生自 <code>Object</code> ；</li>
+<li>运算符重载，泛型支持；</li>
+<li>强大的 <code>Future</code> 和 <code>Stream</code> 模型,可以简单实现高效的代码；</li>
+<li><code>Mixin</code>特性，可以更好的实现方法复用；</li>
+<li>全平台语言，可以很好的胜任移动和前后端的开发。</li>
+<li>在语法上，<code>Dart</code> 提供了很多便捷的操作，可以明显减少代码量。比如字符连接，可以直接 <code>&quot;my name is $name, age is $age&quot;</code>，无需+号拼接，也无需做类型转换。</li>
+</ul>
+<h3 id="Dart-与-Javascript-的简单比较"><a href="#Dart-与-Javascript-的简单比较" class="headerlink" title="Dart 与 Javascript 的简单比较"></a>Dart 与 Javascript 的简单比较</h3><p>1.<code>Dart</code>只有一种否定条件<br>在 JS 中，你可以用 <code>false</code>, <code>null</code>, <code>undefined</code>,<code>&quot;&quot;</code>,<code>0</code>,<code>NaN</code> 作为否定条件:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">if</span> (!a) &#123;</span><br><span class="line">  <span class="comment">// do</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在<code>Dart</code>中，只有 <code>false</code> 才是否定条件，上面的代码必须写成这样:</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =<span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">if</span>(a != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="comment">// do</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.<code>Dart</code>是强类型语言，可以开启类型检查</p>
+<p>3.解析<code>DOM</code><br><code>js</code>获取<code>dom</code>的方法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">getElementsById();</span><br><span class="line">getElementsByTagName();</span><br><span class="line">getElementsByName();</span><br><span class="line">getElementsByClassName();</span><br><span class="line">querySelector();</span><br><span class="line">querySelectorAll();</span><br><span class="line"><span class="built_in">document</span>.links;</span><br><span class="line"><span class="built_in">document</span>.images;</span><br><span class="line"><span class="built_in">document</span>.forms;</span><br><span class="line"><span class="built_in">document</span>.scripts;</span><br><span class="line">formElement.elements;</span><br><span class="line">selectElement.options;</span><br></pre></td></tr></table></figure>
+<p><code>Dart</code>学习了<code>JQuery</code>，只有两个方法:</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">elem.query(<span class="string">'#foo'</span>);</span><br><span class="line">elem.queryAll(<span class="string">'.foo'</span>);</span><br></pre></td></tr></table></figure>
+<p>4.<code>undefined</code> 和 <code>null</code><br>在<code>JS</code>中，这两个值大多数情况可以互换，但有时候又不是，让人很头疼。<code>Dart</code>只有<code>null</code></p>
+<p>5.获取属性值安全处理<br>js 需要判断对象存在才能进一步获取属性值，属性层级越深，判断比较越多</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name =</span><br><span class="line">  person.address || person.address.street || person.address.street.name;</span><br></pre></td></tr></table></figure>
+<p>在 dart 可以通过<code>?.</code>操作符简单获取：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// dart</span></span><br><span class="line"><span class="keyword">var</span> name = address?.street?.name;</span><br></pre></td></tr></table></figure>
+<p>6.级联运算符<br>在 <code>Javascript</code> 中，数组 <code>push</code> 函数返回数组的长度</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// js</span></span><br><span class="line"><span class="keyword">var</span> parks = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">parks.push(<span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="built_in">console</span>.log(parks); <span class="comment">// [1, 2, 3, 4, 5]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> shelters = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">shelters[<span class="number">1</span>] = <span class="number">4</span>;</span><br><span class="line">shelters[<span class="number">2</span>] = <span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(shelters); <span class="comment">// [1, 4, 5]</span></span><br></pre></td></tr></table></figure>
+<p>在 <code>Dart</code> 中，我们有级联运算符列表<code>..Add()</code> ，它允许我们返回列表:</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// dart</span></span><br><span class="line">main() &#123;</span><br><span class="line">  <span class="built_in">print</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]..add(<span class="number">4</span>)..add(<span class="number">5</span>));  <span class="comment">// [1, 2, 3, 4, 5]</span></span><br><span class="line">  <span class="built_in">print</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]..[<span class="number">1</span>]=<span class="number">4.</span>.[<span class="number">2</span>]=<span class="number">5</span>);  <span class="comment">// [1, 4, 5]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考链接：<br><a href="https://www.stephenw.cc/2018/04/20/dart-getting-start/" target="_blank" rel="noopener">https://www.stephenw.cc/2018/04/20/dart-getting-start/</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/dart/" rel="tag"># dart</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/17/js常用设计模式(一)/" rel="next" title="js常用设计模式（一）">
+                <i class="fa fa-chevron-left"></i> js常用设计模式（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/16/https中间人攻击/" rel="prev" title="HTTPS中间人攻击">
+                HTTPS中间人攻击 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars3.githubusercontent.com/u/22002601?s=460&v=4" alt="SPICYCHOCOLATE">
+            
+              <p class="site-author-name" itemprop="name">SPICYCHOCOLATE</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/spicychocolate" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1318945298@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-dart"><span class="nav-number">1.</span> <span class="nav-text">安装 dart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一行-dart"><span class="nav-number">2.</span> <span class="nav-text">第一行 dart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dart语法初探"><span class="nav-number">3.</span> <span class="nav-text">Dart语法初探</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量和类型"><span class="nav-number">3.1.</span> <span class="nav-text">变量和类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数"><span class="nav-number">3.2.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算符"><span class="nav-number">3.3.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流程控制"><span class="nav-number">3.4.</span> <span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类"><span class="nav-number">3.5.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#错误处理"><span class="nav-number">3.6.</span> <span class="nav-text">错误处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#库"><span class="nav-number">3.7.</span> <span class="nav-text">库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dart-的特性"><span class="nav-number">4.</span> <span class="nav-text">Dart 的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dart-与-Javascript-的简单比较"><span class="nav-number">5.</span> <span class="nav-text">Dart 与 Javascript 的简单比较</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SPICYCHOCOLATE</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript">
+    !function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){var colorArr = ['#ec407a', '#ef5350', '#9c27b0', '#ff1744', '#42a5f5', '#7e57c2', '#26c6da', '#26a69a', '#66bb6a', '#d4e157', '#fb8c00', '#ffd54f'];return colorArr[Math.floor(Math.random() * colorArr.length)]}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+  </script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
+</html>
